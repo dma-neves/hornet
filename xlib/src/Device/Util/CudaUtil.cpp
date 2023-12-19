@@ -33,6 +33,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * </blockquote>}
  */
+#include <string>
 #include "Device/Util/CudaUtil.cuh"     //xlib::device_info
 #include "Device/Util/SafeCudaAPI.cuh"  //SAFE_CALL
 #include "Host/Basic.hpp"               //xlib::MB

@@ -33,6 +33,10 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * </blockquote>}
  */
+
+#include<thrust/host_vector.h>
+#include<thrust/device_vector.h>
+
 namespace hornet {
 
 //==============================================================================
@@ -226,8 +230,8 @@ struct RecursiveGather {
     template<typename degree_t, typename Ptr>
     HOST_DEVICE
     static void assign(Ptr src, Ptr dst,
-        const thrust::host_vector<degree_t>& map,
-        const degree_t nE) {
+        thrust::host_vector<degree_t>& map,
+        degree_t nE) {
         if (N >= SIZE) { return; }
         thrust::gather(
                 thrust::host,
@@ -237,7 +241,7 @@ struct RecursiveGather {
         RecursiveGather<N+1, SIZE>::assign(src, dst, map, nE);
     }
     template<typename degree_t, typename Ptr>
-    HOST_DEVICE
+    __host__
     static void assign(Ptr src, Ptr dst,
         const thrust::device_vector<degree_t>& map,
         const degree_t nE) {

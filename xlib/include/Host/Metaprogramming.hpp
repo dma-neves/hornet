@@ -38,6 +38,7 @@
  */
 #pragma once
 
+#include <ostream>
 #include "HostDevice.hpp"
 #include <array>
 #include <cstdint>
