@@ -137,7 +137,8 @@ triangle_t TriangleCounting2::countTriangles(){
         // printf("%d %ld\n", i,outputArray[i]);
         sum+=h_triPerVertex[i];
     }
-    free(h_triPerVertex);
+    // free(h_triPerVertex);
+    delete [] h_triPerVertex;
     //triangle_t sum=gpu::reduce(hd_triangleData().triPerVertex, hd_triangleData().nv+1);
 
     return sum;
