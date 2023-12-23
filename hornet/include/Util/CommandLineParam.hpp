@@ -40,6 +40,7 @@
 #define COMMANDLINEPARAM_HPP
 
 #include <Graph/GraphStd.hpp>     //graph::GraphStd
+#include <Graph/GraphBase.hpp>
 
 namespace hornets_nest {
 

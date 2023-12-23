@@ -13,7 +13,7 @@ include(../compiler-util/CMakeLists.txt)
 include_directories(../hornet/include)
 include_directories(include)
 include_directories(../primitives)
-include_directories(${PROJECT_SOURCE_DIR}/src/Static/BetweennessCentrality)
+# include_directories(${PROJECT_SOURCE_DIR}/src/Static/BetweennessCentrality)
 
 ###################################################################################################
 # - library targets -------------------------------------------------------------------------------

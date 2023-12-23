@@ -40,6 +40,8 @@
 #include <Host/FileUtil.hpp>            //xlib::extract_filepath_noextension
 #include <fstream>                      //std::ifstream
 
+#define NO_PRINT_INFO
+
 namespace hornets_nest {
 
 template<typename T, typename R>
@@ -48,7 +50,11 @@ CommandLineParam::CommandLineParam(graph::GraphStd<T, R>& graph,
                                    noexcept {
     using namespace graph::parsing_prop;
     using namespace graph::structure_prop;
+#ifdef NO_PRINT_INFO
+    graph::ParsingProp prop(graph::detail::ParsingEnum::NONE);
+#else
     graph::ParsingProp prop(PRINT_INFO);
+#endif
     bool write_binary = false;
     if (argc == 1) {
 L1:     std::ifstream syntax_file("../docs/Syntax.txt");
