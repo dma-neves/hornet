@@ -95,7 +95,7 @@ void SSSP::run() {
         current_level++;
         queue.swap();
     }
-    std::cout<<"Levels : "<<current_level<<"\n";
+    //std::cout<<"Levels : "<<current_level<<"\n";
 }
 
 void SSSP::release() {
