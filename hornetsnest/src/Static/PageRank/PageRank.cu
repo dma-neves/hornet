@@ -41,7 +41,6 @@
 
 namespace hornets_nest {
 
-
 StaticPageRank::StaticPageRank(HornetGraph& hornet,
 	            	int  iteration_max,
 	            	pr_t     threshold,
@@ -110,6 +109,7 @@ void StaticPageRank::run() {
 		printf("Run is false\n");
 
 
+	this->niter = 0;
 	while(hd_prdata().iteration < hd_prdata().iteration_max &&
           h_out > hd_prdata().threshold) {
 
@@ -129,6 +129,8 @@ void StaticPageRank::run() {
 
         host::copyFromDevice(hd_prdata().reduction_out, h_out);
 		hd_prdata().iteration++;
+
+		this->niter++;
 	}
 }
 

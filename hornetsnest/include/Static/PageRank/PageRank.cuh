@@ -92,6 +92,8 @@ public:
 
     PrData pr_data();
 
+	int niter;
+
 private:
     load_balancing::BinarySearch 	load_balancing;
     HostDeviceVar<PrData>       	hd_prdata;

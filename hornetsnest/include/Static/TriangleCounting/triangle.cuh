@@ -5,6 +5,7 @@
 namespace hornets_nest {
 
 using triangle_t = unsigned int;
+using vid_t = int;
 using HornetGraph = gpu::Hornet<EMPTY, EMPTY>;
 
 struct TriangleData {

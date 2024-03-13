@@ -49,6 +49,7 @@ struct SpMVOperator {
         //printf("%d %d      %d\n", vertex.id(), edge.dst_id(), edge.weight());
         auto   col = edge.dst_id();
         auto value = edge.template field<0>();
+        value = 1;
         auto   sum = value * d_vector[col];
         atomicAdd(d_result + vertex.id(), sum);
     }
@@ -104,6 +105,10 @@ bool SpMV::validate() {
     //delete[] h_result;
     //return ret;
     return true;
+}
+
+void SpMV::copy_to_host() {
+    gpu::copyToHost(d_result, hornet.nV(), h_vector);
 }
 
 } // namespace hornets_nest

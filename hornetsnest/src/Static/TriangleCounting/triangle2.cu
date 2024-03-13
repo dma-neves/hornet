@@ -133,12 +133,14 @@ triangle_t TriangleCounting2::countTriangles(){
     host::allocate(h_triPerVertex, hornet.nV());
     gpu::copyToHost(triPerVertex, hornet.nV(), h_triPerVertex);
     triangle_t sum=0;
-    // for(int i=0; i<hornet.nV(); i++){
-    //     sum+=h_triPerVertex[i];
-    // }
+    for(int i=0; i<hornet.nV(); i++){
+        sum+=h_triPerVertex[i];
+    }
 
-    triangle_t sum=gpu::reduce(hd_triangleData().triPerVertex, hd_triangleData().nv+1);
+    // //triangle_t sum=gpu::reduce(hd_triangleData().triPerVertex, hd_triangleData().nv+1);
     delete [] h_triPerVertex;
+
+    // triangle_t sum=gpu::reduce(triPerVertex, hornet.nV());
 
     return sum;
 }

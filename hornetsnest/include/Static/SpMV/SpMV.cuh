@@ -57,6 +57,7 @@ public:
     void run()      override;
     void release()  override;
     bool validate() override;
+    void copy_to_host();
 
 private:
     load_balancing::BinarySearch load_balancing;
